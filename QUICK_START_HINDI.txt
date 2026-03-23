@@ -1,0 +1,38 @@
+COSYSYNC - QUICK START
+
+LOCAL TEST:
+1) ZIP extract karo.
+2) Python 3.11+ install hona chahiye.
+3) run.bat (Windows) ya run.sh (Mac/Linux) chalao.
+4) Browser me kholo: http://localhost:8000
+5) Sab log apna account banao.
+6) Ek banda Create room kare.
+7) Copy invite link ya WhatsApp invite button se link bhejo.
+8) Baaki log wahi link kholen ya room code join karein.
+9) Jo banda movie chalana chahe wo Start screen share dabaye.
+10) Chrome/Edge me movie wala tab select karo aur audio option on karo.
+11) Agar audio autoplay na ho to Enable room audio dabao.
+
+STREAMING BUTTONS:
+- YouTube
+- Netflix
+- Prime Video
+- Disney+
+- Spotify
+- Drive
+
+IMPORTANT:
+- In buttons se official site nayi tab me khulti hai.
+- Netflix ya kisi aur third-party service ka password is app me save nahi hota.
+- Ye app small rooms ke liye best hai.
+
+RENDER PAR DAALNE KE LIYE:
+1) Is folder ko GitHub par push karo.
+2) Render me New Web Service banao.
+3) Repo connect karo.
+4) render.yaml use kar lo, ya build/start command README se copy kar lo.
+5) Env me COOKIE_SECURE=true aur COSYSYNC_SECRET_KEY set karo.
+
+DATABASE:
+- Abhi default me sirf login local SQLite me save hoga.
+- Baad me Supabase Postgres use karna ho to DATABASE_URL set kar dena.

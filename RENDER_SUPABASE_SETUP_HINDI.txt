@@ -1,0 +1,9 @@
+COSYSYNC LIVE SETUP
+
+1) Is folder ko GitHub repo me upload karo.
+2) Render > New > Web Service > GitHub repo select karo.
+3) render.yaml ko use kar lo.
+4) Minimum env vars: COSYSYNC_SECRET_KEY, COOKIE_SECURE=true
+5) Agar login save rakhne hain to Supabase se DATABASE_URL add karo.
+6) Deploy hone ke baad Render URL kholo.
+7) Chrome/Edge me screen share ke waqt audio enable karo.
