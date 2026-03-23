@@ -39,6 +39,7 @@ let roomId = '';
 let selfId = '';
 let localStream = null;
 let participantCount = 0;
+let shareRequestActive = false;
 const peerConnections = new Map();
 const remoteStreams = new Map();
 const makingOffer = new Map();
@@ -463,11 +464,33 @@ async function getDisplayStream() {
 }
 
 async function startShare() {
+  if (shareRequestActive) return;
+  shareRequestActive = true;
+  shareBtn.disabled = true;
+  const oldText = shareBtn.textContent;
+  shareBtn.textContent = 'Choose movie tab in browser...';
+  setStatus('Waiting for browser share picker');
+
   try {
     localStream = await getDisplayStream();
   } catch (error) {
-    setStatus('Share cancelled');
-    showToast('Share not started', 'The browser blocked or cancelled screen sharing.');
+    const name = error?.name || 'Error';
+    if (name === 'AbortError') {
+      setStatus('Share picker closed');
+      showToast('Share not started', 'You closed the browser share window. Click once, choose the movie tab, then turn audio on there.');
+    } else if (name === 'NotAllowedError') {
+      setStatus('Browser permission denied');
+      showToast('Permission needed', 'Your browser did not approve screen share. Browsers ask every time.');
+    } else if (name === 'InvalidStateError') {
+      setStatus('Click share directly');
+      showToast('Direct click required', 'Screen share has to start from a real button click. No shortcuts, because browsers are dramatic.');
+    } else {
+      setStatus('Share not started');
+      showToast('Share not started', `Browser returned: ${name}`);
+    }
+    shareBtn.disabled = false;
+    shareBtn.textContent = oldText;
+    shareRequestActive = false;
     return;
   }
 
@@ -477,9 +500,12 @@ async function startShare() {
 
   updateLocalPreview();
   shareBtn.disabled = true;
+  shareBtn.textContent = oldText;
   stopShareBtn.disabled = false;
+  shareRequestActive = false;
   setStatus('Sharing screen');
   pushFeed('<strong>you</strong> started screen share.');
+  showToast('Share live', 'Now the movie tab is being sent to the room.');
 
   for (const peerId of peerConnections.keys()) await syncTracksForPeer(peerId);
 }
@@ -488,7 +514,9 @@ async function stopShare() {
   if (localStream) localStream.getTracks().forEach(track => track.stop());
   localStream = null;
   updateLocalPreview();
+  shareRequestActive = false;
   shareBtn.disabled = false;
+  shareBtn.textContent = 'Start screen share';
   stopShareBtn.disabled = true;
   setStatus('Share stopped');
   pushFeed('<strong>you</strong> stopped screen share.');

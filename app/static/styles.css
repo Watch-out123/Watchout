@@ -612,3 +612,15 @@ video {
     min-height: 52vh;
   }
 }
+
+.share-help-card {
+  display: grid;
+  gap: 6px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.86);
+  font-size: 13px;
+}
+.share-help-card strong { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,215,228,0.92); }
