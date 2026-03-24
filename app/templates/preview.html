@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CosySync Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body class="app-body preview-body">
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <main class="app-shell preview-shell">
+    <header class="topbar glass-card">
+      <div class="brand-row compact">
+        <div class="brand-mark">❤</div>
+        <div>
+          <div class="eyebrow">CosySync</div>
+          <div class="welcome-line">Signed in as <strong>moonlight</strong></div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="ghost-btn">Theater mode</button>
+      </div>
+    </header>
+
+    <section class="workspace-grid premium-grid preview-grid">
+      <aside class="side-column">
+        <div class="glass-card control-card">
+          <div class="section-header">
+            <div><div class="eyebrow">Room</div><h2>Start your watch party</h2></div>
+            <div class="status-pill"><span class="status-dot"></span><span>Streaming</span></div>
+          </div>
+          <div class="stack">
+            <button class="primary-btn full">Create room</button>
+            <div class="join-row"><input value="rosebeam" /><button class="secondary-btn">Join</button></div>
+            <button class="soft-btn full">Copy invite link</button>
+            <div class="info-row"><span>Room</span><strong>rosebeam</strong></div>
+            <div class="info-row"><span>People</span><strong>2</strong></div>
+          </div>
+        </div>
+        <div class="glass-card control-card">
+          <div class="section-header"><div><div class="eyebrow">Extras</div><h3>Little cute controls</h3></div></div>
+          <div class="stack compact-gap">
+            <div class="button-grid two-col">
+              <button class="soft-btn">Ready?</button>
+              <button class="soft-btn">Send ❤️</button>
+            </div>
+            <div class="vibe-grid">
+              <button class="vibe-btn active">Cozy cinema</button>
+              <button class="vibe-btn">Series + snacks</button>
+              <button class="vibe-btn">Late night romance</button>
+              <button class="vibe-btn">YouTube rabbit hole</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <section class="glass-card stage-card">
+        <div class="stage-head">
+          <div>
+            <div class="eyebrow">Watch stage</div>
+            <h2>Partner screen</h2>
+          </div>
+          <button class="ghost-btn">Fullscreen</button>
+        </div>
+        <div class="video-stage romantic-gradient preview-stage">
+          <div class="preview-backdrop"></div>
+          <div class="video-overlay">
+            <div class="overlay-badge">partner stream</div>
+            <div class="stage-hint preview-hint">Soft gradients stand in for the real stream here, because screenshots do not come with an actual movie attached.</div>
+          </div>
+          <div class="local-float glass-card preview-local">
+            <div class="float-label">your preview</div>
+          </div>
+          <div class="heart-burst preview-heart">❤</div>
+        </div>
+      </section>
+
+      <aside class="side-column right-column">
+        <div class="glass-card feed-card">
+          <div class="section-header"><div><div class="eyebrow">Live notes</div><h3>Room activity</h3></div></div>
+          <div class="event-feed">
+            <div class="event-item"><strong>you</strong> picked <em>Cozy cinema</em>.</div>
+            <div class="event-item"><strong>partner</strong> sent a heart.</div>
+            <div class="event-item"><strong>system</strong> audio is ready.</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
